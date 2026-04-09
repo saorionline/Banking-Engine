@@ -1,7 +1,3 @@
-Here’s a **unified, polished README.md** that cleanly merges both your **Banking Engine Simulation** and **State Trace Extension** into one cohesive, professional document.
-
----
-
 # 🏦 Banking Engine Simulation + 🧪 State Trace Extension
 
 > A state-driven banking engine with **database-like behavior** + **beautiful, traceable JUnit 5 test output**.

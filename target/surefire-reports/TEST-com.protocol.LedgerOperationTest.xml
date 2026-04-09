@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.protocol.LedgerOperationTest" time="0.066" tests="13" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.protocol.LedgerOperationTest" time="0.104" tests="13" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CO"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/saotovar/Documents/PinkCode/Banking-Engine/target/surefire/surefirebooter-20260409102957017_3.jar /Users/saotovar/Documents/PinkCode/Banking-Engine/target/surefire 2026-04-09T10-29-56_790-jvmRun1 surefire-20260409102957017_1tmp surefire_0-20260409102957017_2tmp"/>
+    <property name="sun.java.command" value="/Users/saotovar/Documents/PinkCode/Banking-Engine/target/surefire/surefirebooter-20260409111548894_3.jar /Users/saotovar/Documents/PinkCode/Banking-Engine/target/surefire 2026-04-09T11-15-48_628-jvmRun1 surefire-20260409111548894_1tmp surefire_0-20260409111548894_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/saotovar/Documents/PinkCode/Banking-Engine/target/test-classes:/Users/saotovar/Documents/PinkCode/Banking-Engine/target/classes:/Users/saotovar/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/Users/saotovar/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/Users/saotovar/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/saotovar/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/Users/saotovar/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/saotovar/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/Users/saotovar/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/Users/saotovar/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:"/>
@@ -20,16 +20,15 @@
     <property name="user.home" value="/Users/saotovar"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.useFile" value="false"/>
     <property name="java.version.date" value="2026-01-20"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"/>
     <property name="file.separator" value="/"/>
     <property name="basedir" value="/Users/saotovar/Documents/PinkCode/Banking-Engine"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/saotovar/Documents/PinkCode/Banking-Engine/target/surefire/surefirebooter-20260409102957017_3.jar"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/Users/saotovar/Documents/PinkCode/Banking-Engine/target/surefire/surefirebooter-20260409111548894_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.18+8"/>
@@ -57,17 +56,242 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="withdraw_insufficientFunds_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.002"/>
-  <testcase name="transfer_zeroAmount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.005"/>
-  <testcase name="withdraw_exactBalance_shouldLeaveZero" classname="com.protocol.LedgerOperationTest" time="0.002"/>
-  <testcase name="deposit_shouldIncreaseBalance" classname="com.protocol.LedgerOperationTest" time="0.002"/>
-  <testcase name="withdraw_shouldDecreaseBalance" classname="com.protocol.LedgerOperationTest" time="0.005"/>
-  <testcase name="deposit_zeroAmount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.002"/>
-  <testcase name="getBalance_nonExistentAccount_shouldReturnZero" classname="com.protocol.LedgerOperationTest" time="0.001"/>
-  <testcase name="withdraw_negativeAmount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.003"/>
-  <testcase name="withdraw_fromNonExistentAccount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.004"/>
-  <testcase name="deposit_negativeAmount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.002"/>
-  <testcase name="transfer_shouldMoveFundsBetweenAccounts" classname="com.protocol.LedgerOperationTest" time="0.002"/>
-  <testcase name="transfer_insufficientFunds_shouldNotMutateAnyBalance" classname="com.protocol.LedgerOperationTest" time="0.003"/>
-  <testcase name="deposit_multipleDeposits_shouldAccumulate" classname="com.protocol.LedgerOperationTest" time="0.003"/>
+  <testcase name="withdraw_insufficientFunds_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.016">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : withdraw_insufficientFunds_shouldThrow()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Operation : WITHDRAWAL $100.00 from $50.00 balance
+│  └─ Expects   : IllegalStateException → ✔ OK if thrown
+┌─────────────────────────────────────────────
+│ TEST : withdraw_insufficientFunds_shouldThrow()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="transfer_zeroAmount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.003">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : transfer_zeroAmount_shouldThrow()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Operation : TRANSFER $0.00
+│  └─ Expects   : IllegalArgumentException → ✔ OK if thrown
+┌─────────────────────────────────────────────
+│ TEST : transfer_zeroAmount_shouldThrow()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="withdraw_exactBalance_shouldLeaveZero" classname="com.protocol.LedgerOperationTest" time="0.007">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : withdraw_exactBalance_shouldLeaveZero()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Account   : ACC-001
+│  ├─ Before    : $100.00
+│  ├─ Operation : WITHDRAWAL $100.00
+│  └─ After     : $0.00
+│  ├─ Expected  : $0
+│  ├─ Actual    : $0.00
+│  └─ Match     : ✔ OK
+┌─────────────────────────────────────────────
+│ TEST : withdraw_exactBalance_shouldLeaveZero()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="deposit_shouldIncreaseBalance" classname="com.protocol.LedgerOperationTest" time="0.002">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : deposit_shouldIncreaseBalance()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Account   : ACC-001
+│  ├─ Before    : $0
+│  ├─ Operation : DEPOSIT $250.00
+│  └─ After     : $250.00
+│  ├─ Expected  : $250.00
+│  ├─ Actual    : $250.00
+│  └─ Match     : ✔ OK
+┌─────────────────────────────────────────────
+│ TEST : deposit_shouldIncreaseBalance()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="withdraw_shouldDecreaseBalance" classname="com.protocol.LedgerOperationTest" time="0.015">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : withdraw_shouldDecreaseBalance()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Account   : ACC-001
+│  ├─ Before    : $500.00
+│  ├─ Operation : WITHDRAWAL $200.00
+│  └─ After     : $300.00
+│  ├─ Expected  : $300.00
+│  ├─ Actual    : $300.00
+│  └─ Match     : ✔ OK
+┌─────────────────────────────────────────────
+│ TEST : withdraw_shouldDecreaseBalance()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="deposit_zeroAmount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.004">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : deposit_zeroAmount_shouldThrow()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Operation : DEPOSIT $0.00
+│  └─ Expects   : IllegalArgumentException → ✔ OK if thrown
+┌─────────────────────────────────────────────
+│ TEST : deposit_zeroAmount_shouldThrow()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="getBalance_nonExistentAccount_shouldReturnZero" classname="com.protocol.LedgerOperationTest" time="0.006">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : getBalance_nonExistentAccount_shouldReturnZero()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Expected  : $0
+│  ├─ Actual    : $0
+│  └─ Match     : ✔ OK
+┌─────────────────────────────────────────────
+│ TEST : getBalance_nonExistentAccount_shouldReturnZero()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="withdraw_negativeAmount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.004">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : withdraw_negativeAmount_shouldThrow()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Operation : WITHDRAWAL -$10.00
+│  └─ Expects   : IllegalArgumentException → ✔ OK if thrown
+┌─────────────────────────────────────────────
+│ TEST : withdraw_negativeAmount_shouldThrow()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="withdraw_fromNonExistentAccount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.006">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : withdraw_fromNonExistentAccount_shouldThrow()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Operation : WITHDRAWAL from non-existent account GHOST
+│  └─ Expects   : IllegalStateException → ✔ OK if thrown
+┌─────────────────────────────────────────────
+│ TEST : withdraw_fromNonExistentAccount_shouldThrow()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="deposit_negativeAmount_shouldThrow" classname="com.protocol.LedgerOperationTest" time="0.006">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : deposit_negativeAmount_shouldThrow()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Operation : DEPOSIT -$10.00
+│  └─ Expects   : IllegalArgumentException → ✔ OK if thrown
+┌─────────────────────────────────────────────
+│ TEST : deposit_negativeAmount_shouldThrow()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="transfer_shouldMoveFundsBetweenAccounts" classname="com.protocol.LedgerOperationTest" time="0.004">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : transfer_shouldMoveFundsBetweenAccounts()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Account   : ACC-001
+│  ├─ Before    : $1000.00
+│  ├─ Operation : TRANSFER OUT $400.00
+│  └─ After     : $600.00
+│  ├─ Expected  : $600.00
+│  ├─ Actual    : $600.00
+│  └─ Match     : ✔ OK
+│  ├─ Account   : ACC-002
+│  ├─ Before    : $200.00
+│  ├─ Operation : TRANSFER IN $400.00
+│  └─ After     : $600.00
+│  ├─ Expected  : $600.00
+│  ├─ Actual    : $600.00
+│  └─ Match     : ✔ OK
+┌─────────────────────────────────────────────
+│ TEST : transfer_shouldMoveFundsBetweenAccounts()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="transfer_insufficientFunds_shouldNotMutateAnyBalance" classname="com.protocol.LedgerOperationTest" time="0.005">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : transfer_insufficientFunds_shouldNotMutateAnyBalance()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Operation : TRANSFER $500.00 from $100.00 balance
+│  └─ Expects   : IllegalStateException → ✔ OK if thrown
+│  ├─ Expected  : $100.00
+│  ├─ Actual    : $100.00
+│  └─ Match     : ✔ OK
+│  ├─ Expected  : $50.00
+│  ├─ Actual    : $50.00
+│  └─ Match     : ✔ OK
+┌─────────────────────────────────────────────
+│ TEST : transfer_insufficientFunds_shouldNotMutateAnyBalance()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
+  <testcase name="deposit_multipleDeposits_shouldAccumulate" classname="com.protocol.LedgerOperationTest" time="0.003">
+    <system-out><![CDATA[
+┌─────────────────────────────────────────────
+│ TEST : deposit_multipleDeposits_shouldAccumulate()
+│ STATE: INITIALIZING
+└─────────────────────────────────────────────
+│  ├─ Account   : ACC-001
+│  ├─ Before    : $0
+│  ├─ Operation : DEPOSIT $100.00
+│  └─ After     : $100.00
+│  ├─ Account   : ACC-001
+│  ├─ Before    : $100.00
+│  ├─ Operation : DEPOSIT $50.75
+│  └─ After     : $150.75
+│  ├─ Expected  : $150.75
+│  ├─ Actual    : $150.75
+│  └─ Match     : ✔ OK
+┌─────────────────────────────────────────────
+│ TEST : deposit_multipleDeposits_shouldAccumulate()
+│ STATE: ✔ OK
+└─────────────────────────────────────────────
+
+]]></system-out>
+  </testcase>
 </testsuite>

@@ -1,2 +1,4 @@
-com/protocol/AuditTriggerTest.class
 com/protocol/LedgerOperationTest.class
+com/protocol/AuditTriggerTest.class
+com/protocol/trace/StateTracer.class
+com/protocol/trace/StateTraceExtension.class
