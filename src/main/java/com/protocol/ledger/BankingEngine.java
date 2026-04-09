@@ -1,49 +1,74 @@
 package com.protocol.ledger;
+
 import com.protocol.audit.AuditLogger;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class BankingEngine {
-    private final Map<String, Double> accounts = new HashMap<>();
-    private final List<String> auditLog = new ArrayList<>();
 
-    // "Trigger" - Simulated automated audit logging
-    private void executeAuditTrigger(String action, String accountId, double amount) {
-        auditLog.add(String.format("AUDIT: %s | Account: %s | Amount: %.2f", action, accountId, amount));
+    private final Map<String, BigDecimal> accounts = new ConcurrentHashMap<>();
+    private final AuditLogger auditLogger;
+
+    public BankingEngine(AuditLogger auditLogger) {
+        this.auditLogger = auditLogger;
     }
 
     // "Procedure" - Deposit logic with validation
-    public void deposit(String accountId, double amount) {
-        if (amount <= 0) throw new IllegalArgumentException("Invalid deposit amount");
-        accounts.put(accountId, accounts.getOrDefault(accountId, 0.0) + amount);
-        executeAuditTrigger("DEPOSIT", accountId, amount);
+    public void deposit(String accountId, BigDecimal amount) {
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Invalid deposit amount");
+        }
+        accounts.merge(accountId, amount, BigDecimal::add);
+        auditLogger.log("DEPOSIT", accountId, format(amount));
     }
 
     // "Procedure" - Withdrawal logic with balance validation
-    public void withdraw(String accountId, double amount) {
-        double currentBalance = accounts.getOrDefault(accountId, 0.0);
-        if (amount > currentBalance) throw new IllegalStateException("Insufficient funds");
-        
-        accounts.put(accountId, currentBalance - amount);
-        executeAuditTrigger("WITHDRAWAL", accountId, amount);
+    public void withdraw(String accountId, BigDecimal amount) {
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Invalid withdrawal amount");
+        }
+        accounts.compute(accountId, (id, current) -> {
+            BigDecimal balance = current != null ? current : BigDecimal.ZERO;
+            if (amount.compareTo(balance) > 0) {
+                throw new IllegalStateException("Insufficient funds");
+            }
+            return balance.subtract(amount);
+        });
+        auditLogger.log("WITHDRAWAL", accountId, format(amount));
     }
 
-    // "Procedure" - Atomic Transfer
-    public void transfer(String fromId, String toId, double amount) {
-        withdraw(fromId, amount);
-        deposit(toId, amount);
-        executeAuditTrigger("TRANSFER", fromId + " to " + toId, amount);
+    // "Procedure" - Atomic Transfer (logged as a single TRANSFER event)
+    public void transfer(String fromId, String toId, BigDecimal amount) {
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Invalid transfer amount");
+        }
+        // Perform balance movement without triggering individual audit entries
+        accounts.compute(fromId, (id, current) -> {
+            BigDecimal balance = current != null ? current : BigDecimal.ZERO;
+            if (amount.compareTo(balance) > 0) {
+                throw new IllegalStateException("Insufficient funds");
+            }
+            return balance.subtract(amount);
+        });
+        accounts.merge(toId, amount, BigDecimal::add);
+
+        // Single audit entry for the transfer
+        auditLogger.log("TRANSFER", fromId + " -> " + toId, format(amount));
     }
 
-    public double getBalance(String accountId) {
-        return accounts.getOrDefault(accountId, 0.0);
+    public BigDecimal getBalance(String accountId) {
+        return accounts.getOrDefault(accountId, BigDecimal.ZERO);
     }
 
     public List<String> getAuditLog() {
-        return new ArrayList<>(auditLog);
+        return auditLogger.getLog();
+    }
+
+    private String format(BigDecimal amount) {
+        return amount.setScale(2, RoundingMode.HALF_UP).toPlainString();
     }
 }
