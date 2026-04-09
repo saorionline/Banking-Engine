@@ -23,14 +23,14 @@ public class LedgerOperationTest {
     @Test
     void deposit_shouldIncreaseBalance() {
         engine.deposit("ACC-001", new BigDecimal("250.00"));
-        assertEquals(new BigDecimal("250.00"), engine.getBalance("ACC-001"));
+        assertEquals(0, engine.getBalance("ACC-001").compareTo(new BigDecimal("250.00")));
     }
 
     @Test
     void deposit_multipleDeposits_shouldAccumulate() {
         engine.deposit("ACC-001", new BigDecimal("100.00"));
         engine.deposit("ACC-001", new BigDecimal("50.75"));
-        assertEquals(new BigDecimal("150.75"), engine.getBalance("ACC-001"));
+        assertEquals(0, engine.getBalance("ACC-001").compareTo(new BigDecimal("150.75")));
     }
 
     @Test
@@ -51,14 +51,14 @@ public class LedgerOperationTest {
     void withdraw_shouldDecreaseBalance() {
         engine.deposit("ACC-001", new BigDecimal("500.00"));
         engine.withdraw("ACC-001", new BigDecimal("200.00"));
-        assertEquals(new BigDecimal("300.00"), engine.getBalance("ACC-001"));
+        assertEquals(0, engine.getBalance("ACC-001").compareTo(new BigDecimal("300.00")));
     }
 
     @Test
     void withdraw_exactBalance_shouldLeaveZero() {
         engine.deposit("ACC-001", new BigDecimal("100.00"));
         engine.withdraw("ACC-001", new BigDecimal("100.00"));
-        assertEquals(BigDecimal.ZERO, engine.getBalance("ACC-001"));
+        assertEquals(0, engine.getBalance("ACC-001").compareTo(BigDecimal.ZERO));
     }
 
     @Test
@@ -90,8 +90,8 @@ public class LedgerOperationTest {
 
         engine.transfer("ACC-001", "ACC-002", new BigDecimal("400.00"));
 
-        assertEquals(new BigDecimal("600.00"), engine.getBalance("ACC-001"));
-        assertEquals(new BigDecimal("600.00"), engine.getBalance("ACC-002"));
+        assertEquals(0, engine.getBalance("ACC-001").compareTo(new BigDecimal("600.00")));
+        assertEquals(0, engine.getBalance("ACC-002").compareTo(new BigDecimal("600.00")));
     }
 
     @Test
@@ -103,8 +103,8 @@ public class LedgerOperationTest {
                 () -> engine.transfer("ACC-001", "ACC-002", new BigDecimal("500.00")));
 
         // Balances must be unchanged
-        assertEquals(new BigDecimal("100.00"), engine.getBalance("ACC-001"));
-        assertEquals(new BigDecimal("50.00"), engine.getBalance("ACC-002"));
+        assertEquals(0, engine.getBalance("ACC-001").compareTo(new BigDecimal("100.00")));
+        assertEquals(0, engine.getBalance("ACC-002").compareTo(new BigDecimal("50.00")));
     }
 
     @Test
@@ -118,6 +118,6 @@ public class LedgerOperationTest {
 
     @Test
     void getBalance_nonExistentAccount_shouldReturnZero() {
-        assertEquals(BigDecimal.ZERO, engine.getBalance("UNKNOWN"));
+        assertEquals(0,engine.getBalance("UNKNOWN").compareTo(BigDecimal.ZERO));
     }
 }
